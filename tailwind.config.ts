@@ -60,10 +60,30 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
         },
+        title: {
+          '0%': {
+            'line-height': '0%',
+            'letter-spacing': '0.25em',
+            opacity: '0',
+          },
+          '25%': {
+            'line-height': '0%',
+            opacity: '0%',
+          },
+          '80%': {
+            opacity: '100%',
+          },
+
+          '100%': {
+            'line-height': '100%',
+            opacity: '100%',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        title: 'title 3s ease-out forwards',
       },
     },
   },
