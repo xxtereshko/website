@@ -1,24 +1,15 @@
 import { ThemeToggle } from '@entities/theme'
-import { Alert, AlertDescription, AlertTitle } from '@shared/ui/shadcn/ui/alert'
+import { Alert, AlertDescription, AlertTitle } from '@shared/shadcn/ui/alert'
 import { Terminal } from 'lucide-react'
-
-export const revalidate = 3600
 
 export default function Home() {
   return (
-    <main className="container my-10">
-      <TypographyDemo />
-    </main>
-  )
-}
-
-function TypographyDemo() {
-  return (
-    <div>
+    <main className="container">
       <ThemeToggle />
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         The Joke Tax Chronicles
       </h1>
+
       <Alert className="my-10">
         <Terminal className="h-4 w-4" />
         <AlertTitle>Heads up!</AlertTitle>
@@ -134,6 +125,6 @@ function TypographyDemo() {
         The moral of the story is: never underestimate the power of a good laugh and
         always be careful of bad ideas.
       </p>
-    </div>
+    </main>
   )
 }
