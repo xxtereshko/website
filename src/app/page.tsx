@@ -5,7 +5,9 @@ import { Terminal } from 'lucide-react'
 export default function Home() {
   return (
     <main className="container">
-      <ThemeToggle />
+      <div className="my-6">
+        <ThemeToggle />
+      </div>
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         The Joke Tax Chronicles
       </h1>
