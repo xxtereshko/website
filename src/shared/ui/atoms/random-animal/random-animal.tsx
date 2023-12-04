@@ -3,18 +3,19 @@
 import { Skeleton } from '@shared/shadcn/ui/skeleton'
 import { useEffect, useState } from 'react'
 import { adjectives, animals, uniqueNamesGenerator } from 'unique-names-generator'
+import { prependArticle } from './lib'
 
 export const RandomAnimal = () => {
   const [shortName, setShortName] = useState('')
 
   useEffect(() => {
     const uniqueName = uniqueNamesGenerator({
-      dictionaries: [adjectives, animals], // colors can be omitted here as not used
+      dictionaries: [adjectives, animals],
       separator: ' ',
       length: 2,
     })
 
-    setShortName(`The ${uniqueName}.`)
+    setShortName(prependArticle(`${uniqueName}.`))
   }, [])
 
   if (!shortName) {
