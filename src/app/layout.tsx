@@ -1,13 +1,7 @@
 import { ThemeProvider } from '@shared/providers'
-import { cn } from '@shared/ui'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-})
 
 export const metadata: Metadata = {
   title: 'Максим Терешко',
@@ -31,26 +25,34 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  interactiveWidget: 'resizes-visual',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+type Props = {
+  children: React.ReactNode
+}
+
+const RootLayout = ({ children }: Props) => {
   return (
-    <html lang="ru" suppressHydrationWarning>
-      <body
-        className={cn(
-          'min-h-screen bg-background font-sans antialiased',
-          inter.variable,
-        )}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          storageKey="theme"
-          enableSystem
-          disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   )
 }
+
+export default RootLayout
