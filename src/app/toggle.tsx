@@ -22,7 +22,7 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start">
+      <DropdownMenuContent align="center">
         <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
           <DropdownMenuRadioItem value="light">Светлая</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="dark">Тёмная</DropdownMenuRadioItem>
