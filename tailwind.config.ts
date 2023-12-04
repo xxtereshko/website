@@ -11,6 +11,12 @@ module.exports = {
       },
     },
     extend: {
+      minHeight: {
+        screen: ['100vh /* fallback */', '100dvh'],
+      },
+      height: {
+        screen: ['100vh /* fallback */', '100dvh'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
