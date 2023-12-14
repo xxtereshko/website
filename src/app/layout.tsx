@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@shared/providers'
+import { cn } from '@shared/ui'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export const viewport = {
   viewportFit: 'cover',
 }
 
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 })
@@ -36,23 +37,19 @@ type Props = {
   children: React.ReactNode
 }
 
-const RootLayout = ({ children }: Props) => {
+export default function RootLayout({ children }: Props) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body className={cn('font-sans antialiased min-h-screen', fontSans.variable)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }
-
-export default RootLayout
