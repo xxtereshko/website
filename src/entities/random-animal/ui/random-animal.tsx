@@ -10,5 +10,7 @@ export const RandomAnimal = () => {
     return <Skeleton className="w-[100px] h-[20px] rounded-full" />
   }
 
-  return <p className="text-sm text-muted-foreground">{randomAnimal}</p>
+  return (
+    <p className="text-sm text-muted-foreground cursor-default">{randomAnimal}</p>
+  )
 }
