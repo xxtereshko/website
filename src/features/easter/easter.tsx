@@ -10,9 +10,7 @@ export const Easter = () => {
   const [isExploding, setIsExploding] = useState(false)
 
   useShortcuts({
-    'h u i': () => {
-      setIsExploding(true)
-    },
+    'KeyH KeyU KeyI': () => setIsExploding(true),
   })
 
   const handleComplete = useCallback(() => {

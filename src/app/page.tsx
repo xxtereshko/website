@@ -2,9 +2,7 @@ import { RandomAnimal } from '@entities/random-animal'
 import { ThemeToggle } from '@entities/theme'
 import dynamic from 'next/dynamic'
 
-const Easter = dynamic(() => import('../features/easter/easter'), {
-  ssr: false,
-})
+const Easter = dynamic(() => import('../features/easter/easter'), { ssr: false })
 
 export default function Home() {
   return (
