@@ -4,8 +4,8 @@ const withBundleAnalyze = require('@next/bundle-analyzer')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['lucide-react'],
   reactStrictMode: false,
+  transpilePackages: ['lucide-react'],
 }
 
 module.exports = withBundleAnalyze(nextConfig)
