@@ -30,7 +30,7 @@
     "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.8.1",
+    "@cloudflare/next-on-pages": "^1.8.2",
     "@next/bundle-analyzer": "^14.0.3",
     "@types/node": "^20.10.3",
     "@types/react": "^18.2.41",

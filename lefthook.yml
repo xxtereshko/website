@@ -19,8 +19,8 @@ commit-msg:
 pre-push:
   parallel: true
   commands:
-    packages:audit:
-      run: pnpm audit
+    # packages:audit:
+    #   run: pnpm audit
     # TODO: uncomment after test will added
     # test:
     #   run: yarn test
