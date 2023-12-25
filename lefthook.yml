@@ -1,0 +1,26 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:eslint:
+      glob: '*.{ts,tsx}'
+      run: yarn eslint {staged_files} --fix
+      stage_fixed: true
+    lint:prettier:
+      glob: '*.{html,json,md,yml,[tj]s,[tj]sx}'
+      run: yarn prettier --write {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  commands:
+    validate:
+      run: >
+        npx git-conventional-commits commit-msg-hook {1}
+
+pre-push:
+  parallel: true
+  commands:
+    packages:audit:
+      run: yarn audit
+    # TODO: uncomment after test will added
+    # test:
+    #   run: yarn test
