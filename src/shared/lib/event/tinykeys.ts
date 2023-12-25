@@ -234,7 +234,7 @@ export function createKeybindingsHandler(
  * ```
  */
 export function tinykeys(
-  target: Window | HTMLElement,
+  target: HTMLElement | Window,
   keyBindingMap: KeyBindingMap,
   options: KeyBindingOptions = {},
 ): () => void {

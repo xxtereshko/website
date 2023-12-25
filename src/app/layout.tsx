@@ -1,34 +1,33 @@
-import './globals.css'
-
-import { ThemeProvider } from '@shared/providers'
-
-import { cn } from '@shared/ui'
 import { Metadata, Viewport } from 'next'
-
 import { Inter as FontSans } from 'next/font/google'
 
+import { ThemeProvider } from '@shared/providers'
+import { cn } from '@shared/ui'
+
+import './globals.css'
+
 export const metadata = {
-  title: 'Максим Терешко',
   icons: {
     shortcut: '/favicon.png',
   },
   robots: {
-    index: true,
     follow: true,
     googleBot: {
-      index: true,
       follow: true,
-      'max-video-preview': -1,
+      index: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
+    index: true,
   },
+  title: 'Максим Терешко',
 } satisfies Metadata
 
 export const viewport = {
-  width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
+  width: 'device-width',
 } satisfies Viewport
 
 const fontSans = FontSans({
@@ -42,7 +41,7 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning lang="en">
       <head />
       <body className={cn('min-h-screen font-sans antialiased', fontSans.variable)}>
         <ThemeProvider>{children}</ThemeProvider>

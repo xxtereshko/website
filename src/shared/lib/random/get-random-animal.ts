@@ -3,8 +3,8 @@ import { adjectives, animals, uniqueNamesGenerator } from 'unique-names-generato
 export const getRandomAnimal = () => {
   const randomAnimal = uniqueNamesGenerator({
     dictionaries: [adjectives, animals],
-    separator: ' ',
     length: 2,
+    separator: ' ',
   })
 
   return randomAnimal

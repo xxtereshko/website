@@ -1,7 +1,8 @@
 'use client'
 
-import { KeyBindingMap, KeyBindingOptions, tinykeys } from '@shared/lib/event'
 import { useEffect } from 'react'
+
+import { KeyBindingMap, KeyBindingOptions, tinykeys } from '@shared/lib/event'
 
 export const useShortcuts = (
   keyBindingMap: KeyBindingMap,
@@ -13,5 +14,5 @@ export const useShortcuts = (
     return () => {
       unsubscribe()
     }
-  }, [])
+  }, [keyBindingMap, options])
 }

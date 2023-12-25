@@ -1,8 +1,10 @@
 'use client'
 
-import { useShortcuts } from '@shared/hooks'
 import { useCallback, useState } from 'react'
+
 import ConfettiExplosion from 'react-confetti-explosion'
+
+import { useShortcuts } from '@shared/hooks'
 
 const colors = ['#17A34A', '#2463EB', '#FACC14', '#F97315', '#7B39ED', '#E11D48']
 

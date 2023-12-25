@@ -1,6 +1,7 @@
 'use client'
 
 import { Skeleton } from '@shared/shadcn/ui/skeleton'
+
 import { useRandomAnimal } from '../hooks'
 
 export const RandomAnimal = () => {

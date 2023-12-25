@@ -1,1 +1,1 @@
-export type TThemeVariant = 'light' | 'dark' | 'system'
+export type TThemeVariant = 'dark' | 'light' | 'system'

@@ -7,13 +7,13 @@ export const themeVariants: Record<
     shortcut: string
   }
 > = {
-  light: {
-    label: 'Светлая',
-    shortcut: '⇧+L',
-  },
   dark: {
     label: 'Тёмная',
     shortcut: '⇧+D',
+  },
+  light: {
+    label: 'Светлая',
+    shortcut: '⇧+L',
   },
   system: {
     label: 'Системная',
