@@ -1,10 +1,13 @@
-import { ThemeProvider } from '@shared/providers'
-import { cn } from '@shared/ui'
-import type { Metadata } from 'next'
-import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
 
-export const metadata: Metadata = {
+import { ThemeProvider } from '@shared/providers'
+
+import { cn } from '@shared/ui'
+import { Metadata, Viewport } from 'next'
+
+import { Inter as FontSans } from 'next/font/google'
+
+export const metadata = {
   title: 'Максим Терешко',
   icons: {
     shortcut: '/favicon.png',
@@ -20,16 +23,16 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+} satisfies Metadata
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-}
+} satisfies Viewport
 
 const fontSans = FontSans({
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   variable: '--font-sans',
 })
 
@@ -41,14 +44,8 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn('font-sans antialiased min-h-screen', fontSans.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+      <body className={cn('min-h-screen font-sans antialiased', fontSans.variable)}>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )
