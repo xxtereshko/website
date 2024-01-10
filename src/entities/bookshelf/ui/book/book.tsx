@@ -7,6 +7,7 @@ type Props = TBook
 export const Book = ({ category, href, title }: Props) => {
   return (
     <Link
+      prefetch
       className="shrink-0 my-5 perspective-750 cursor-pointer rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
       href={href}>
       <div className="relative select-none transform-style-3d will-change-transform transform-gpu duration-500 hover:-translate-x-2 hover:scale-105 hover:-rotate-y-25">
