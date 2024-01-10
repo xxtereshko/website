@@ -18,12 +18,14 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@shared/*": ["./src/shared/*"],
       "@app/*": ["./src/app/*"],
       "@entities/*": ["./src/entities/*"],
       "@widgets/*": ["./src/widgets/*"],
-      "@features/*": ["./src/features/*"]
+      "@features/*": ["./src/features/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "forceConsistentCasingInFileNames": true
   },

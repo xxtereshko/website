@@ -1,3 +1,4 @@
+import { allPosts } from 'contentlayer/generated'
 import { Mouse } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
@@ -8,13 +9,13 @@ import { ThemeToggle } from '@entities/theme'
 
 const Easter = dynamic(() => import('../features/easter/easter'), { ssr: false })
 
-const books = [
-  {
-    category: 'Git, MacOS',
-    href: '/',
-    title: 'Несколько Git профилей на одном устройстве',
-  },
-] satisfies TBook[]
+const books = allPosts
+  .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
+  .map(post => ({
+    category: post.description ?? '',
+    href: post.slug,
+    title: post.title,
+  })) satisfies TBook[]
 
 export default function Home() {
   return (
