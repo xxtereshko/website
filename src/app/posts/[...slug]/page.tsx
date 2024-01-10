@@ -9,6 +9,8 @@ import { Mdx } from '@shared/lib/mdx'
 
 import './styles.css'
 
+export const runtime = 'edge'
+
 interface PostProps {
   params: {
     slug: string[]
