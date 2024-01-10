@@ -7,6 +7,8 @@ import { cn } from '@shared/ui'
 import './globals.css'
 
 export const metadata = {
+  authors: { name: 'Максим Терешко' },
+  description: 'Embracing details. Nurturing novelty. Deploying excellence.',
   icons: {
     shortcut: '/favicon.png',
   },
@@ -26,6 +28,10 @@ export const metadata = {
 
 export const viewport = {
   initialScale: 1,
+  themeColor: [
+    { color: '#ffffff', media: '(prefers-color-scheme: light)' },
+    { color: '#171717', media: '(prefers-color-scheme: dark)' },
+  ],
   viewportFit: 'cover',
   width: 'device-width',
 } satisfies Viewport

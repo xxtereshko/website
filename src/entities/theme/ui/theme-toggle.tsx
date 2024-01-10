@@ -28,7 +28,7 @@ export const ThemeToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
+        <Button aria-label="Изменение темы" variant="outline">
           <SunMoonIcon className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>

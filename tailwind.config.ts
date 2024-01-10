@@ -4,15 +4,8 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   darkMode: ['class'],
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('tailwindcss-3d'), 'container'],
   theme: {
-    container: {
-      center: true,
-      padding: '1.5rem',
-      screens: {
-        '2xl': '1300px',
-      },
-    },
     extend: {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -59,6 +52,9 @@ module.exports = {
           foreground: 'hsl(var(--secondary-foreground))',
         },
       },
+      container: {
+        center: true,
+      },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
@@ -74,28 +70,12 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
         },
-        title: {
-          '0%': {
-            'letter-spacing': '0.25em',
-            'line-height': '0%',
-            opacity: '0',
-          },
-          '25%': {
-            'line-height': '0%',
-            opacity: '0%',
-          },
-          '80%': {
-            opacity: '100%',
-          },
-
-          '100%': {
-            'line-height': '100%',
-            opacity: '100%',
-          },
-        },
       },
       minHeight: {
         screen: ['100vh /* fallback */', '100dvh'],
+      },
+      rotate: {
+        '25': '25deg',
       },
     },
   },
