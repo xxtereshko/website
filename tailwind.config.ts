@@ -61,7 +61,7 @@ module.exports = {
         center: true,
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
       },
       height: {
         screen: ['100vh /* fallback */', '100dvh'],
@@ -82,6 +82,13 @@ module.exports = {
       rotate: {
         '25': '25deg',
       },
+    },
+    screens: {
+      lg: '1024px',
+      md: '768px',
+      sm: '435px',
+      xl: '1280px',
+      xs: '390px',
     },
   },
 }

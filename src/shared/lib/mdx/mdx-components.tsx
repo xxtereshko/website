@@ -152,9 +152,5 @@ type Props = {
 export function Mdx({ code }: Props) {
   const Component = useMDXComponent(code)
 
-  return (
-    <div className="mdx">
-      <Component components={components} />
-    </div>
-  )
+  return <Component components={components} />
 }

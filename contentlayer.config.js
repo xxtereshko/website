@@ -16,23 +16,7 @@ const computedFields = {
   },
 }
 
-export const Page = defineDocumentType(() => ({
-  computedFields,
-  contentType: 'mdx',
-  fields: {
-    description: {
-      type: 'string',
-    },
-    title: {
-      required: true,
-      type: 'string',
-    },
-  },
-  filePathPattern: `pages/**/*.mdx`,
-  name: 'Page',
-}))
-
-export const Post = defineDocumentType(() => ({
+export const Writing = defineDocumentType(() => ({
   computedFields,
   contentType: 'mdx',
   fields: {
@@ -48,13 +32,13 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
     },
   },
-  filePathPattern: `posts/**/*.mdx`,
-  name: 'Post',
+  filePathPattern: `writing/**/*.mdx`,
+  name: 'Writing',
 }))
 
 export default makeSource({
-  contentDirPath: './src/content',
-  documentTypes: [Post, Page],
+  contentDirPath: './src/shared/content',
+  documentTypes: [Writing],
   mdx: {
     rehypePlugins: [
       rehypeSlug,
