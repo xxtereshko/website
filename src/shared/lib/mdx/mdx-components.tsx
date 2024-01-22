@@ -35,7 +35,7 @@ const components = {
   code: ({ ...props }) => (
     <code
       className={cn(
-        'relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm',
+        'relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm max-w-full',
         props.className,
       )}
       {...props}

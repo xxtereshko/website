@@ -1,10 +1,9 @@
 'use client'
 
-import { useMemo } from 'react'
-
 import { formatDistanceToNow, parseISO } from 'date-fns'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Balancer from 'react-wrap-balancer'
 
 import { cn } from '@shared/ui'
 
@@ -18,19 +17,23 @@ type Props = {
 export const WritingListItem = ({ date, description, href, title }: Props) => {
   const pathname = usePathname()
 
-  const isSelected = useMemo(() => pathname === href, [href, pathname])
+  const isSelected = pathname === href
 
   return (
     <Link
       className={cn(
-        'flex flex-col items-start gap-2 rounded-lg border px-3 py-2 text-left text-sm transition-all hover:bg-accent',
-        isSelected && 'bg-accent',
+        'flex flex-col items-start gap-2 rounded-md px-3 py-2 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+        isSelected
+          ? 'bg-accent text-accent-foreground'
+          : 'hover:bg-zinc-50 hover:text-accent-foreground',
       )}
       href={href}>
       <div className="flex w-full flex-col gap-1">
         <div className="flex items-center">
           <div className="flex items-center gap-2">
-            <div className="font-semibold">{title}</div>
+            <Balancer ratio={0.2}>
+              <div className="font-semibold">{title}</div>
+            </Balancer>
           </div>
         </div>
         <div className="text-xs font-medium">{description}</div>

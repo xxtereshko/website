@@ -147,18 +147,34 @@
   .bounces {
     overscroll-behavior: unset;
   }
+
+  .bg-dashed {
+    --dot-bg: var(--background);
+    --dot-color: var(--secondary-foreground);
+    --dot-size: 1px;
+    --dot-space: 22px;
+    background:
+      linear-gradient(
+          90deg,
+          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      linear-gradient(
+          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      var(--dot-color);
+  }
 }
 
 @layer components {
   .content-wrapper {
-    @apply z-[1] w-full px-6 pb-8 pt-8 lg:px-8 lg:pb-16 lg:pt-24;
+    @apply z-[1] w-full px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-12 lg:py-16 xl:py-20;
   }
 
   .content {
     @apply mx-auto w-full lg:mb-0 lg:max-w-3xl;
-  }
-
-  .scrollable-area {
-    @apply h-full min-h-screen overflow-y-auto;
   }
 }
