@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { SideNavigation } from '@entities/side-navigation'
+import { ThemeToggle } from '@entities/theme'
 import { Button } from '@shared/shadcn/ui/button'
 import {
   Drawer,
@@ -33,9 +34,11 @@ export const FloatingHeader = () => {
           </Button>
         </DrawerTrigger>
         <DrawerPortal>
-          <DrawerContent className="bg-white flex flex-col fixed bottom-0 left-0 right-0 max-h-[96%] rounded-t-[10px]">
+          <DrawerContent className="bg-sidebar flex flex-col fixed bottom-0 left-0 right-0 max-h-[96%] rounded-t-[10px]">
             <div className="max-w-md w-full mx-auto flex flex-col overflow-auto p-4 rounded-t-[10px]">
               <SideNavigation isCompact onClick={() => setIsOpened(false)} />
+
+              <ThemeToggle />
             </div>
           </DrawerContent>
         </DrawerPortal>
