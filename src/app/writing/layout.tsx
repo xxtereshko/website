@@ -2,7 +2,7 @@ import { allWritings } from 'contentlayer/generated'
 
 import { WritingListItem } from '@entities/writing/ui'
 import { ScrollArea } from '@shared/shadcn/ui/scroll-area'
-import { NavMenuTemplate } from '@shared/ui/templates'
+import { SidebarTemplate } from '@shared/ui/templates'
 
 type Props = {
   children: React.ReactNode
@@ -10,7 +10,7 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <NavMenuTemplate
+    <SidebarTemplate
       NavMenu={
         <ScrollArea className="h-screen">
           <div className="flex flex-col">
@@ -33,6 +33,6 @@ export default function RootLayout({ children }: Props) {
       }
       isInner>
       {children}
-    </NavMenuTemplate>
+    </SidebarTemplate>
   )
 }

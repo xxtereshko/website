@@ -55,8 +55,9 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -94,6 +95,13 @@
 }
 
 @layer utilities {
+  .text-numeric {
+    font-feature-settings: "ss09";
+  }
+
+  .focusable {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
 }
 
 @layer components {
@@ -103,9 +111,5 @@
 
   .content {
     @apply mx-auto w-full lg:mb-0 lg:max-w-3xl;
-  }
-
-  .focusable {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 }

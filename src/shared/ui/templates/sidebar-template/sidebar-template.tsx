@@ -8,7 +8,7 @@ type Props = {
   isInner?: boolean
 }
 
-export const NavMenuTemplate = ({ NavMenu, children, isInner = false }: Props) => {
+export const SidebarTemplate = ({ NavMenu, children, isInner = false }: Props) => {
   return (
     <div className="min-h-screen flex">
       <div

@@ -5,7 +5,7 @@ import { Metadata, Viewport } from 'next'
 import { NavMenu } from '@entities/nav-menu/ui'
 import { ThemeProvider } from '@shared/providers'
 import { cn } from '@shared/ui'
-import { NavMenuTemplate } from '@shared/ui/templates'
+import { SidebarTemplate } from '@shared/ui/templates'
 
 import './globals.css'
 
@@ -40,14 +40,9 @@ export default function RootLayout({ children }: Props) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body
-        className={cn(
-          'h-screen font-sans antialiased',
-          GeistSans.variable,
-          GeistMono.variable,
-        )}>
+      <body className={cn('min-h-screen', GeistSans.variable, GeistMono.variable)}>
         <ThemeProvider>
-          <NavMenuTemplate NavMenu={<NavMenu />}>{children}</NavMenuTemplate>
+          <SidebarTemplate NavMenu={<NavMenu />}>{children}</SidebarTemplate>
         </ThemeProvider>
       </body>
     </html>
