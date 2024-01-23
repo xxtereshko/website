@@ -3,12 +3,18 @@ import { ReactNode } from 'react'
 import { cn } from '@shared/ui'
 
 type Props = {
-  NavMenu: ReactNode
+  HeaderNode?: ReactNode
+  NavMenuNode: ReactNode
   children: ReactNode
   isInner?: boolean
 }
 
-export const SidebarTemplate = ({ NavMenu, children, isInner = false }: Props) => {
+export const SidebarTemplate = ({
+  HeaderNode,
+  NavMenuNode,
+  children,
+  isInner = false,
+}: Props) => {
   return (
     <div className="flex">
       <div
@@ -21,11 +27,15 @@ export const SidebarTemplate = ({ NavMenu, children, isInner = false }: Props) =
             'min-h-screen sticky inset-0 border-r',
             !isInner && 'bg-sidebar',
           )}>
-          {NavMenu}
+          {NavMenuNode}
         </div>
       </div>
 
-      <div className="flex-1">{children}</div>
+      <div className="flex-1">
+        {HeaderNode}
+
+        {children}
+      </div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 
+import { FloatingHeader } from '@features/floating-header'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Metadata, Viewport } from 'next'
@@ -44,7 +45,13 @@ export default function RootLayout({ children }: Props) {
       <head />
       <body className={cn('min-h-screen', GeistSans.variable, GeistMono.variable)}>
         <ThemeProvider>
-          <SidebarTemplate NavMenu={<SideNavigation />}>{children}</SidebarTemplate>
+          <div className="min-h-screen bg-background" vaul-drawer-wrapper="">
+            <SidebarTemplate
+              HeaderNode={<FloatingHeader />}
+              NavMenuNode={<SideNavigation />}>
+              {children}
+            </SidebarTemplate>
+          </div>
         </ThemeProvider>
       </body>
     </html>

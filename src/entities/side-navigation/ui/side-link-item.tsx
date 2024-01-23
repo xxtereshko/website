@@ -1,5 +1,7 @@
 'use client'
 
+import { useCallback } from 'react'
+
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 
@@ -9,17 +11,28 @@ import { Icon } from '@shared/ui/atoms/icon'
 import { useSideLinkStatus } from '../hooks'
 import { TSideNavigationLink } from '../types'
 
-type Props = TSideNavigationLink
+type Props = TSideNavigationLink & {
+  onClick?: () => void
+}
 
-export const SideLinkItem = ({ href, icon, name }: Props) => {
+export const SideLinkItem = ({ href, icon, name, onClick }: Props) => {
   const { isActive, isExternal } = useSideLinkStatus({ href })
+
+  const handleClick = useCallback(() => {
+    if (!onClick) {
+      return
+    }
+
+    onClick()
+  }, [onClick])
 
   return (
     <Button
       asChild
       className="justify-start px-3"
       size="sm"
-      variant={isActive ? 'default' : 'ghost'}>
+      variant={isActive ? 'default' : 'ghost'}
+      onClick={handleClick}>
       <Link
         href={href}
         rel={isExternal ? 'noopener noreferrer' : undefined}

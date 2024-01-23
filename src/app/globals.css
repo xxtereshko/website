@@ -57,7 +57,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -74,8 +74,8 @@
   @media not screen and (hover: none) {
     html,
     body {
-      overscroll-behavior: none;
-      -webkit-overscroll-behavior: none;
+      overscroll-behavior-y: none;
+      -webkit-overscroll-behavior-y: none;
     }
   }
 
