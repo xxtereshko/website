@@ -1,6 +1,6 @@
+import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
 
 import { NavMenu } from '@entities/nav-menu/ui'
 import { ThemeProvider } from '@shared/providers'
@@ -39,11 +39,6 @@ export const viewport = {
   width: 'device-width',
 } satisfies Viewport
 
-const fontSans = FontSans({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-sans',
-})
-
 type Props = {
   children: React.ReactNode
 }
@@ -54,8 +49,9 @@ export default function RootLayout({ children }: Props) {
       <head />
       <body
         className={cn(
-          'h-screen font-sans antialiased dark:bg-zinc-900',
+          'h-screen font-sans antialiased bounces-none',
           GeistSans.variable,
+          GeistMono.variable,
         )}>
         <ThemeProvider>
           <NavMenuTemplate NavMenu={<NavMenu />}>{children}</NavMenuTemplate>

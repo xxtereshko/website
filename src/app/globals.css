@@ -2,32 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .book-spine-gradient {
-    background: linear-gradient(
-        90deg,
-        hsla(0, 0%, 100%, 0),
-        hsla(0, 0%, 100%, 0) 12%,
-        hsla(0, 0%, 100%, 0.25) 29.25%,
-        hsla(0, 0%, 100%, 0) 50.5%,
-        hsla(0, 0%, 100%, 0) 75.25%,
-        hsla(0, 0%, 100%, 0.25) 91%,
-        hsla(0, 0%, 100%, 0)
-      ),
-      linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.03),
-        rgba(0, 0, 0, 0.1) 12%,
-        transparent 30%,
-        rgba(0, 0, 0, 0.02) 50%,
-        rgba(0, 0, 0, 0.2) 73.5%,
-        rgba(0, 0, 0, 0.5) 75.25%,
-        rgba(0, 0, 0, 0.15) 85.25%,
-        transparent
-      );
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -80,53 +54,6 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-
-  html,
-  body {
-    overscroll-behavior-y: none;
-  }
-
-  [data-rehype-pretty-code-fragment] code {
-    @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
-    counter-reset: line;
-    box-decoration-break: clone;
-  }
-  [data-rehype-pretty-code-fragment] .line {
-    @apply px-4 py-1;
-  }
-  [data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
-    counter-increment: line;
-    content: counter(line);
-    display: inline-block;
-    width: 1rem;
-    margin-right: 1rem;
-    text-align: right;
-    color: gray;
-  }
-  [data-rehype-pretty-code-fragment] .line--highlighted {
-    @apply bg-neutral-300 bg-opacity-10;
-  }
-  [data-rehype-pretty-code-fragment] .line-highlighted span {
-    @apply relative;
-  }
-  [data-rehype-pretty-code-fragment] .word--highlighted {
-    @apply rounded-md bg-neutral-300 bg-opacity-10 p-1;
-  }
-  [data-rehype-pretty-code-title] {
-    @apply mt-4 py-2 px-4 text-sm font-medium;
-  }
-  [data-rehype-pretty-code-title] + pre {
-    @apply mt-0;
-  }
 
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -143,29 +70,25 @@
   }
 }
 
-@layer utilities {
-  .bounces {
-    overscroll-behavior: unset;
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      background-attachment: initial !important;
+      scroll-behavior: auto !important;
+      transition-duration: 1ms !important;
+      transition-delay: 1ms !important;
+    }
   }
+}
 
-  .bg-dashed {
-    --dot-bg: var(--background);
-    --dot-color: var(--secondary-foreground);
-    --dot-size: 1px;
-    --dot-space: 22px;
-    background:
-      linear-gradient(
-          90deg,
-          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-          transparent 1%
-        )
-        center / var(--dot-space) var(--dot-space),
-      linear-gradient(
-          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-          transparent 1%
-        )
-        center / var(--dot-space) var(--dot-space),
-      var(--dot-color);
+@layer utilities {
+  .bounces-none {
+    overscroll-behavior-y: none;
   }
 }
 
@@ -176,5 +99,9 @@
 
   .content {
     @apply mx-auto w-full lg:mb-0 lg:max-w-3xl;
+  }
+
+  .focusable {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 }

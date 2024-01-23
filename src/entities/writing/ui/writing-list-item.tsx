@@ -22,7 +22,7 @@ export const WritingListItem = ({ date, description, href, title }: Props) => {
   return (
     <Link
       className={cn(
-        'flex flex-col items-start gap-2 rounded-md px-3 py-2 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+        'flex flex-col items-start gap-2 rounded-md px-3 py-2 ring-offset-background transition-colors focusable',
         isSelected
           ? 'bg-accent text-accent-foreground'
           : 'hover:bg-zinc-50 hover:text-accent-foreground',
@@ -31,8 +31,8 @@ export const WritingListItem = ({ date, description, href, title }: Props) => {
       <div className="flex w-full flex-col gap-1">
         <div className="flex items-center">
           <div className="flex items-center gap-2">
-            <Balancer ratio={0.2}>
-              <div className="font-semibold">{title}</div>
+            <Balancer as="span" className="font-semibold" ratio={0.2}>
+              {title}
             </Balancer>
           </div>
         </div>
