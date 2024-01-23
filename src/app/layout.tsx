@@ -17,13 +17,6 @@ export const metadata = {
   },
   robots: {
     follow: true,
-    googleBot: {
-      follow: true,
-      index: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
     index: true,
   },
   title: 'Максим Терешко',
@@ -32,7 +25,7 @@ export const metadata = {
 export const viewport = {
   initialScale: 1,
   themeColor: [
-    { color: '#ffffff', media: '(prefers-color-scheme: light)' },
+    { color: '#fafafa', media: '(prefers-color-scheme: light)' },
     { color: '#171717', media: '(prefers-color-scheme: dark)' },
   ],
   viewportFit: 'cover',
@@ -49,7 +42,7 @@ export default function RootLayout({ children }: Props) {
       <head />
       <body
         className={cn(
-          'h-screen font-sans antialiased bounces-none',
+          'h-screen font-sans antialiased',
           GeistSans.variable,
           GeistMono.variable,
         )}>

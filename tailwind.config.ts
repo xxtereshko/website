@@ -49,6 +49,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
+        sidebar: 'hsl(var(--sidebar))',
       },
       fontFamily: {
         mono: ['var(--font-geist-mono)'],

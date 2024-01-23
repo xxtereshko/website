@@ -6,6 +6,7 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    --sidebar: 0 0% 98%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -29,6 +30,7 @@
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
+    --sidebar: 0 0% 5.9%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
@@ -50,27 +52,32 @@
 }
 
 @layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
   html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
+    scroll-behavior: smooth;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-delay: -1ms !important;
-      animation-duration: 1ms !important;
-      animation-iteration-count: 1 !important;
-      background-attachment: initial !important;
-      scroll-behavior: auto !important;
-      transition-duration: 1ms !important;
-      transition-delay: 1ms !important;
+  /**
+    Disables bouncy scrolling on non-touch devices */
+  @media not screen and (hover: none) {
+    html,
+    body {
+      overscroll-behavior: none;
+      -webkit-overscroll-behavior: none;
     }
   }
-}
 
-@layer base {
   @media (prefers-reduced-motion: reduce) {
     *,
     ::before,
@@ -87,9 +94,6 @@
 }
 
 @layer utilities {
-  .bounces-none {
-    overscroll-behavior-y: none;
-  }
 }
 
 @layer components {

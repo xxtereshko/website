@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 import Balancer from 'react-wrap-balancer'
 
 import { Mdx } from '@shared/lib/mdx'
-import { ScrollArea } from '@shared/shadcn/ui/scroll-area'
 
 type Props = {
   params: {
@@ -21,24 +20,22 @@ export default async function WritingPage({ params }: Props) {
   const date = parseISO(post.date)
 
   return (
-    <ScrollArea className="w-full">
-      <div className="content-wrapper">
-        <div className="content">
-          <div className={'mb-6'}>
-            <Balancer
-              as="h1"
-              className="text-2xl md:text-3xl slashed-zero tracking-tighter text-black font-semibold mb-4">
-              {post.title}
-            </Balancer>
+    <div className="content-wrapper">
+      <div className="content">
+        <div className={'mb-6'}>
+          <Balancer
+            as="h1"
+            className="text-2xl md:text-3xl slashed-zero tracking-tighter text-black font-semibold mb-4">
+            {post.title}
+          </Balancer>
 
-            <time className="block text-sm text-muted-foreground">
-              {format(date, 'MMMM dd, yyyy')}
-            </time>
-          </div>
-
-          <Mdx code={post.body.code} />
+          <time className="block text-sm text-muted-foreground">
+            {format(date, 'MMMM dd, yyyy')}
+          </time>
         </div>
+
+        <Mdx code={post.body.code} />
       </div>
-    </ScrollArea>
+    </div>
   )
 }

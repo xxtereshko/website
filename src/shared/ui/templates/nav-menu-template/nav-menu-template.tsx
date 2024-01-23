@@ -10,16 +10,18 @@ type Props = {
 
 export const NavMenuTemplate = ({ NavMenu, children, isInner = false }: Props) => {
   return (
-    <div className="flex w-full h-full items-stretch">
+    <div className="min-h-screen flex">
       <div
         className={cn(
-          'hidden shrink-0 w-full h-full bg-zinc-50 dark:bg-zinc-950 border-r text-sm transition-[width]',
-          isInner ? 'bg-white w-64 xl:w-80 lg:block' : 'w-56 lg:w-64 md:block',
+          'hidden transition-[width]',
+          isInner ? 'lg:block w-64 xl:w-80' : 'md:block w-56 lg:w-64',
         )}>
-        {NavMenu}
+        <div className={cn('sticky inset-0 border-r', !isInner && 'bg-sidebar')}>
+          {NavMenu}
+        </div>
       </div>
 
-      <div className="flex flex-1 h-full">{children}</div>
+      <div className="flex-1">{children}</div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ type Props = {
 export const NavPerson = ({ image, name, position }: Props) => {
   return (
     <Link
-      className="link-card inline-flex items-center rounded-md gap-2 p-2 focusable"
+      className="link-card inline-flex items-center rounded-md gap-2 p-2 focusable text-sm"
       href="/">
       <Avatar className="border">
         <AvatarImage src={image} />

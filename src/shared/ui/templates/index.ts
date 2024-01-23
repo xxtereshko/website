@@ -1,1 +1,1 @@
-export * from './nav-menu-template'
+export { NavMenuTemplate } from './nav-menu-template'

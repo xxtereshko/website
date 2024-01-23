@@ -1,5 +1,7 @@
 import Balancer from 'react-wrap-balancer'
 
+import { ThemeToggle } from '@entities/theme'
+
 export default function Home() {
   return (
     <div className="content-wrapper">
@@ -12,6 +14,8 @@ export default function Home() {
         <Balancer as="p" className="mb-6">
           I develop things as a Frontend Software Engineer at KODE.
         </Balancer>
+
+        <ThemeToggle />
       </div>
     </div>
   )
