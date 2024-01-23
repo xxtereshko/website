@@ -1,15 +1,8 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{ts,tsx}', './src,content/**/*.{md,mdx}'],
   darkMode: ['class'],
-  plugins: [
-    require('tailwindcss-animate'),
-    require('@tailwindcss/typography'),
-    require('tailwindcss-3d'),
-    'container',
-  ],
+  plugins: [],
   theme: {
     extend: {
       animation: {
@@ -56,32 +49,28 @@ module.exports = {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
-      },
-      container: {
-        center: true,
+        sidebar: 'hsl(var(--sidebar))',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        mono: ['var(--font-geist-mono)'],
+        sans: ['var(--font-geist-sans)'],
       },
       height: {
         screen: ['100vh /* fallback */', '100dvh'],
       },
-      keyframes: {
-        'accordion-down': {
-          from: { height: 0 },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: 0 },
-        },
+      maxHeight: {
+        screen: ['100vh /* fallback */', '100dvh'],
       },
       minHeight: {
         screen: ['100vh /* fallback */', '100dvh'],
       },
-      rotate: {
-        '25': '25deg',
-      },
+    },
+    screens: {
+      lg: '1024px',
+      md: '768px',
+      sm: '435px',
+      xl: '1280px',
+      xs: '390px',
     },
   },
 }

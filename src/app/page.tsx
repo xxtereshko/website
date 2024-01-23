@@ -1,47 +1,18 @@
-import { allPosts } from 'contentlayer/generated'
-import { Mouse } from 'lucide-react'
-import dynamic from 'next/dynamic'
-
-import { Bookshelf } from '@entities/bookshelf'
-import { TBook } from '@entities/bookshelf/types'
-import { RandomAnimal } from '@entities/random-animal'
-import { ThemeToggle } from '@entities/theme'
-
-const Easter = dynamic(() => import('../features/easter/easter'), { ssr: false })
-
-const books = allPosts
-  .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
-  .map(post => ({
-    category: post.description ?? '',
-    href: post.slug,
-    title: post.title,
-  })) satisfies TBook[]
+import Balancer from 'react-wrap-balancer'
 
 export default function Home() {
   return (
-    <>
-      <Easter />
+    <div className="content-wrapper">
+      <div className="content">
+        <Balancer as="p" className="mb-6">
+          Hi 👋 I&apos;m Maxim, a software engineer and minimalist based in
+          Kaliningrad, Russia.
+        </Balancer>
 
-      <div className="relative flex flex-col items-center justify-center min-h-screen w-screen">
-        <div className="space-y-1 w-48 flex flex-1 justify-center flex-col select-none">
-          <h2 className="text-2xl font-semibold tracking-tight cursor-default">
-            @xxtereshko
-          </h2>
-
-          <RandomAnimal />
-        </div>
-
-        <Mouse
-          className="w-6 h-6 absolute left-1/2 -translate-x-2/4 bottom-4"
-          strokeWidth={1}
-        />
+        <Balancer as="p" className="mb-6">
+          I develop things as a Frontend Software Engineer at KODE.
+        </Balancer>
       </div>
-
-      <Bookshelf books={books} title="Если любишь почитать" />
-
-      <div className="flex items-center justify-center mt-36 mb-8">
-        <ThemeToggle />
-      </div>
-    </>
+    </div>
   )
 }

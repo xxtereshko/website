@@ -5,6 +5,14 @@ import * as React from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from 'next/image'
 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@shared/shadcn/ui/table'
 import { cn } from '@shared/ui'
 
 const components = {
@@ -27,7 +35,7 @@ const components = {
   code: ({ ...props }) => (
     <code
       className={cn(
-        'relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm',
+        'relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm max-w-full',
         props.className,
       )}
       {...props}
@@ -112,33 +120,14 @@ const components = {
     />
   ),
   table: ({ ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 w-full overflow-y-auto">
-      <table className={cn('w-full', props.className)} {...props} />
-    </div>
+    <Table className={cn('my-6', props.className)} {...props} />
   ),
-  td: ({ ...props }) => (
-    <td
-      className={cn(
-        'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
-        props.className,
-      )}
-      {...props}
-    />
-  ),
-  th: ({ ...props }) => (
-    <th
-      className={cn(
-        'border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
-        props.className,
-      )}
-      {...props}
-    />
-  ),
+  tbody: ({ ...props }) => <TableBody {...props} />,
+  td: ({ ...props }) => <TableCell {...props} />,
+  th: ({ ...props }) => <TableHead {...props} />,
+  thead: ({ ...props }) => <TableHeader {...props} />,
   tr: ({ ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr
-      className={cn('m-0 border-t p-0 even:bg-muted', props.className)}
-      {...props}
-    />
+    <TableRow {...props} />
   ),
   ul: ({ ...props }) => (
     <ul className={cn('my-6 ml-6 list-disc', props.className)} {...props} />
@@ -152,9 +141,5 @@ type Props = {
 export function Mdx({ code }: Props) {
   const Component = useMDXComponent(code)
 
-  return (
-    <div className="mdx">
-      <Component components={components} />
-    </div>
-  )
+  return <Component components={components} />
 }

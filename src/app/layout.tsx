@@ -1,8 +1,14 @@
-import { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
+import { ReactNode } from 'react'
 
+import { FloatingHeader } from '@features/floating-header'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
+import { Metadata, Viewport } from 'next'
+
+import { SideNavigation } from '@entities/side-navigation'
 import { ThemeProvider } from '@shared/providers'
 import { cn } from '@shared/ui'
+import { SidebarTemplate } from '@shared/ui/templates'
 
 import './globals.css'
 
@@ -14,13 +20,6 @@ export const metadata = {
   },
   robots: {
     follow: true,
-    googleBot: {
-      follow: true,
-      index: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
     index: true,
   },
   title: 'Максим Терешко',
@@ -29,28 +28,31 @@ export const metadata = {
 export const viewport = {
   initialScale: 1,
   themeColor: [
-    { color: '#ffffff', media: '(prefers-color-scheme: light)' },
+    { color: '#fafafa', media: '(prefers-color-scheme: light)' },
     { color: '#171717', media: '(prefers-color-scheme: dark)' },
   ],
   viewportFit: 'cover',
   width: 'device-width',
 } satisfies Viewport
 
-const fontSans = FontSans({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-sans',
-})
-
 type Props = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function RootLayout({ children }: Props) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body className={cn('min-h-screen font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className={cn('min-h-screen', GeistSans.variable, GeistMono.variable)}>
+        <ThemeProvider>
+          <div className="min-h-screen bg-background" vaul-drawer-wrapper="">
+            <SidebarTemplate
+              HeaderNode={<FloatingHeader />}
+              NavMenuNode={<SideNavigation />}>
+              {children}
+            </SidebarTemplate>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
