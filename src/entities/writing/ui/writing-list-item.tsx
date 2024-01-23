@@ -23,8 +23,8 @@ export const WritingListItem = ({ date, description, href, title }: Props) => {
       className={cn(
         'text-sm flex flex-col items-start gap-2 rounded-md px-3 py-2 ring-offset-background transition-colors focusable',
         isSelected
-          ? 'bg-accent text-accent-foreground'
-          : 'hover:bg-zinc-50 hover:text-accent-foreground',
+          ? 'bg-accent hover:bg-accent text-accent-foreground'
+          : 'hover:bg-accent hover:text-accent-foreground ',
       )}
       href={href}>
       <div className="flex w-full flex-col gap-1">
