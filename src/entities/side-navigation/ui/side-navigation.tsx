@@ -1,3 +1,4 @@
+import { ThemeToggle } from '@entities/theme'
 import { ScrollArea } from '@shared/shadcn/ui/scroll-area'
 
 import { sideNavigationLinks, sideSocialLinks } from '../constants'
@@ -38,6 +39,8 @@ export const SideNavigation = ({ isCompact, onClick }: Props) => {
         />
         <SideLinkList className="flex-1" links={sideNavigationLinks} />
         <SideLinkList links={sideSocialLinks} />
+
+        <ThemeToggle />
       </div>
     </ScrollArea>
   )

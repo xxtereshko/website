@@ -27,7 +27,7 @@ export default async function WritingPage({ params }: Props) {
         <div className={'mb-6'}>
           <Balancer
             as="h1"
-            className="text-2xl md:text-3xl slashed-zero tracking-tighter text-black font-semibold mb-4">
+            className="text-2xl md:text-3xl slashed-zero tracking-tighter text-foreground font-semibold mb-4">
             {post.title}
           </Balancer>
 
