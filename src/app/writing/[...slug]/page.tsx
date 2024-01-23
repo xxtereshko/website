@@ -5,6 +5,8 @@ import Balancer from 'react-wrap-balancer'
 
 import { Mdx } from '@shared/lib/mdx'
 
+export const runtime = 'edge'
+
 type Props = {
   params: {
     slug: string[]
