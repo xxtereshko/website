@@ -25,7 +25,7 @@ export const SidebarTemplate = ({
         <div
           className={cn(
             'min-h-screen sticky inset-0 border-r',
-            !isInner && 'bg-sidebar',
+            !isInner && 'bg-sidebar ml-safe',
           )}>
           {NavMenuNode}
         </div>

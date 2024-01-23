@@ -2,7 +2,7 @@
 module.exports = {
   content: ['./src/**/*.{ts,tsx}', './src,content/**/*.{md,mdx}'],
   darkMode: ['class'],
-  plugins: [],
+  plugins: [require('tailwindcss-safe-area')],
   theme: {
     extend: {
       animation: {
