@@ -10,13 +10,17 @@ type Props = {
 
 export const SidebarTemplate = ({ NavMenu, children, isInner = false }: Props) => {
   return (
-    <div className="min-h-screen flex">
+    <div className="flex">
       <div
         className={cn(
           'hidden transition-[width]',
           isInner ? 'lg:block w-64 xl:w-80' : 'md:block w-56 lg:w-64',
         )}>
-        <div className={cn('sticky inset-0 border-r', !isInner && 'bg-sidebar')}>
+        <div
+          className={cn(
+            'min-h-screen sticky inset-0 border-r',
+            !isInner && 'bg-sidebar',
+          )}>
           {NavMenu}
         </div>
       </div>

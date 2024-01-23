@@ -7,8 +7,8 @@ export default function Home() {
     <div className="content-wrapper">
       <div className="content">
         <Balancer as="p" className="mb-6">
-          Hi 👋 I&apos;m Maxim (meaning &quot;the greatest&quot; in English), a
-          software engineer and minimalist based in Kaliningrad, Russia.
+          Hi 👋 I&apos;m Maxim, a software engineer and minimalist based in
+          Kaliningrad, Russia.
         </Balancer>
 
         <Balancer as="p" className="mb-6">

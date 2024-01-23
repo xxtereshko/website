@@ -1,12 +1,6 @@
-import { icons } from 'lucide-react'
+import { TSideNavigationLink } from './types'
 
-export type TLink = {
-  href: string
-  icon?: keyof typeof icons
-  name: string
-}
-
-export const NAV_MENU_LINKS: TLink[] = [
+export const sideNavigationLinks: TSideNavigationLink[] = [
   {
     href: '/',
     icon: 'Sparkles',
@@ -19,7 +13,7 @@ export const NAV_MENU_LINKS: TLink[] = [
   },
 ]
 
-export const SocialLinks: TLink[] = [
+export const sideSocialLinks: TSideNavigationLink[] = [
   {
     href: 'https://twitter.com/xxtereshko',
     icon: 'Twitter',

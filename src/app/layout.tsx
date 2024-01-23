@@ -1,8 +1,10 @@
+import { ReactNode } from 'react'
+
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Metadata, Viewport } from 'next'
 
-import { NavMenu } from '@entities/nav-menu/ui'
+import { SideNavigation } from '@entities/side-navigation'
 import { ThemeProvider } from '@shared/providers'
 import { cn } from '@shared/ui'
 import { SidebarTemplate } from '@shared/ui/templates'
@@ -33,7 +35,7 @@ export const viewport = {
 } satisfies Viewport
 
 type Props = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function RootLayout({ children }: Props) {
@@ -42,7 +44,7 @@ export default function RootLayout({ children }: Props) {
       <head />
       <body className={cn('min-h-screen', GeistSans.variable, GeistMono.variable)}>
         <ThemeProvider>
-          <SidebarTemplate NavMenu={<NavMenu />}>{children}</SidebarTemplate>
+          <SidebarTemplate NavMenu={<SideNavigation />}>{children}</SidebarTemplate>
         </ThemeProvider>
       </body>
     </html>
