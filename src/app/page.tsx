@@ -5,12 +5,8 @@ export default function Home() {
     <div className="content-wrapper">
       <div className="content">
         <Balancer as="p" className="mb-6">
-          Hi 👋 I&apos;m Maxim, a software engineer and minimalist based in
-          Kaliningrad, Russia.
-        </Balancer>
-
-        <Balancer as="p" className="mb-6">
-          I develop things as a Frontend Software Engineer at KODE.
+          Hi 👋 I&apos;m Maxim. I develop things as a Frontend Software Engineer at
+          @KODE.
         </Balancer>
       </div>
     </div>
